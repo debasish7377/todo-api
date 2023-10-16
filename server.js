@@ -1,5 +1,4 @@
 const express = require('express');
-const morgan = require('morgan');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
@@ -15,8 +14,6 @@ dotenv.config({
 })
 
 connectDB()
-
-app.use(morgan("dev"))
 
 app.use('/api/todo/auth', require('./routes/user'))
 
