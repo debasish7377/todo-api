@@ -98,11 +98,11 @@ router.post('/login', async(req, res, next) => {
     }
 
     jwt.sign(payload, process.env.jwtUserSecret, {
-        expiresIn: 360000
+        expiresIn: 36
     },(error, token) =>{
         if(error) throw error
         res.status(200).json({
-            success: true,
+            success: true,//debasish_sahoo@monosage.com
             token: token,
             user: user,
             msg: "User loged in"
