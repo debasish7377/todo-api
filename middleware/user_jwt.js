@@ -14,7 +14,7 @@ module.exports = async function(req, res, next) {
         await jwt.verify(token, process.env.jwtUserSecret, (error, decoded) =>{
             if(error){
                 res.status(400).json({
-                    msg: "Token nor valid"
+                    msg: "Token not valid"
                 })
 
             }else{
