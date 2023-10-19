@@ -77,7 +77,7 @@ router.post('/login', async(req, res, next) => {
         });
     
     if(!user) {
-        res.status(400).json({
+        return res.status(400).json({
             success: false,
             msg: 'User not exists go & register to continue'
         });
@@ -85,7 +85,7 @@ router.post('/login', async(req, res, next) => {
     
     const isMatch = await bcrypt.compare (password, user.password)
     if(!isMatch) {
-        res.status(400).json({
+        return res.status(400).json({
             success: false,
             msg: 'Invalid Password'
         });
