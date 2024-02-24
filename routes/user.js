@@ -27,7 +27,7 @@ router.post('/register',async (req, res, next) => {
    try{
     let user_exist = await User.findOne({ email : email })
     if(user_exist){
-        res.json({
+        res.status(400).json({
             success: false,
             msg: 'User allredy exist'
         })
@@ -98,7 +98,7 @@ router.post('/login', async(req, res, next) => {
     }
 
     jwt.sign(payload, process.env.jwtUserSecret, {
-        expiresIn: 36
+        expiresIn: 360000
     },(error, token) =>{
         if(error) throw error
         res.status(200).json({

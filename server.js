@@ -17,6 +17,7 @@ connectDB()
 
 app.use('/api/todo/auth', require('./routes/user'))
 app.use('/api/todo', require('./routes/todo'))
+app.use('/api/todo', require('./routes/cart_my'))
 
 
 const PORT = process.env.PORT || 3000
