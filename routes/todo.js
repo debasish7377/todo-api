@@ -62,10 +62,16 @@ router.put("/:id", async (req, res, next) => {
       });
     }
 
-    toDo = await Todo.findById(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+    // toDo = await Todo.findById(req.params.id, req.body, {
+    //   new: true,
+    //   runValidators: true,
+    // });
+
+     // Update the todo with the request body
+    Object.assign(toDo, req.body);
+
+    // Save the updated todo
+    await toDo.save();
 
     res.status(200).json({
       success: true,
